@@ -1,0 +1,19 @@
+{
+	"compilerOptions": {
+		"target": "ES6",
+		"module": "ESNext",
+		"moduleResolution": "Node",
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"strict": true,
+		"skipLibCheck": true,
+		"paths": { "@/*": ["./packages/*"] }
+	},
+	"include": [
+		"vitest.config.ts",
+		"packages/**/**.test.ts",
+		"packages/**/**.spec.ts",
+		"packages/**/**.ts"
+	],
+	"exclude": ["node_modules", "scripts"]
+}
