@@ -1,3 +1,4 @@
+import { PasswordEntity } from '@/core/password/entity/password.entity';
 import {
 	LOWER_CHARACTERS,
 	NUMBER_CHARACTERS,
@@ -6,7 +7,6 @@ import {
 } from './character.constants';
 import { DEFAULT_PASSWORD_GENERATOR_OPTION } from './option.constants';
 import type { PasswordGeneratorOption } from './option.interface';
-import { PasswordEntity } from './password.entity';
 
 class PasswordGenerator {
 	#option: PasswordGeneratorOption;
@@ -19,7 +19,7 @@ class PasswordGenerator {
 		);
 	}
 
-	public generate(): PasswordEntity {
+	get #characters(): string {
 		let characters = '';
 
 		if (this.#option.lowercases === true) {
@@ -42,14 +42,38 @@ class PasswordGenerator {
 			characters = characters.concat(this.#option.customCharacters);
 		}
 
-		let password = '';
-		let length = this.#option.length;
-		for (let index = 0; index < length; index++) {
-			const randomIndex = Math.floor(Math.random() * characters.length);
-			password = password.concat(characters[randomIndex]);
-		}
+		return characters;
+	}
 
-		const result = new PasswordEntity(password);
-		return result;
+	get #character(): string {
+		const characters = this.#characters;
+		const length = characters.length;
+		const position = Math.floor(Math.random() * length);
+		return characters.charAt(position);
+	}
+
+	public generate(): PasswordEntity {
+		const length = this.#option.length;
+		let password: string = '';
+		for (let count = 0; count < length; count++) {
+			password = password.concat(this.#character);
+		}
+		return PasswordEntity.from(password);
+	}
+
+	public *[Symbol.iterator](): Generator<PasswordEntity, void, unknown> {
+		let count: number = 0;
+		while (count < this.#option.length) {
+			let count = 0;
+			yield this.generate();
+			count += 1;
+		}
+	}
+
+	public static generate(option?: Partial<PasswordGeneratorOption>) {
+		const generator = new PasswordGenerator(option ?? null);
+		return generator.generate();
 	}
 }
+
+export { PasswordGenerator };
