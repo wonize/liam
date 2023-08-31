@@ -7,6 +7,16 @@ function plus(a: number, b: number): number {
 
 // plus.spec.ts
 describe('core: math (some for integeration)', function () {
+	test('plus function', function () {
+		expect(plus(1, 2)).toEqual(3);
+		expect(plus(4, 2)).toEqual(6);
+		expect(plus(-1, -2)).toEqual(-3);
+		expect(plus(-1, -5)).toEqual(-6);
+		expect(plus(1, 2)).toBeTypeOf('number');
+	});
+});
+
+describe('core: math (each api)', function () {
 	test.each<{ input: [number, number]; expect: number }>([
 		{ input: [1, 2], expect: 3 },
 		{ input: [2, 4], expect: 6 },
@@ -16,10 +26,6 @@ describe('core: math (some for integeration)', function () {
 		const result = plus.apply(null, item.input);
 		expect(result).toEqual(item.expect);
 	});
-});
-
-describe('core: math (each api)', function () {
-	test('plus function', function () {});
 });
 
 // OR
