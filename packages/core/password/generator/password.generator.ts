@@ -45,18 +45,14 @@ class PasswordGenerator {
 		return characters;
 	}
 
-	get #character(): string {
-		const characters = this.#characters;
-		const length = characters.length;
-		const position = Math.floor(Math.random() * length);
-		return characters.charAt(position);
-	}
-
 	public generate(): PasswordEntity {
 		const length = this.#option.length;
+		const characters = this.#characters;
 		let password: string = '';
 		for (let count = 0; count < length; count++) {
-			password = password.concat(this.#character);
+			const position = Math.floor(Math.random() * length);
+			const character = characters.charAt(position);
+			password = password.concat(character);
 		}
 		return PasswordEntity.from(password);
 	}
