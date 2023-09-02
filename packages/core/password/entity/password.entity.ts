@@ -1,8 +1,8 @@
 class PasswordEntity {
 	readonly #value: string = '';
 
-	public constructor(value: string) {
-		this.#value = value;
+	public constructor(value: string | number) {
+		this.#value = value.toString();
 	}
 
 	public toString(): Readonly<string> {
@@ -26,8 +26,7 @@ class PasswordEntity {
 
 	public static from(value: string): PasswordEntity;
 	public static from(value: number): PasswordEntity;
-	public static from(value: any): PasswordEntity {
-		const data = value.toString();
+	public static from(value: string | number): PasswordEntity {
 		const password = new PasswordEntity(value);
 		return password;
 	}
