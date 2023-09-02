@@ -30,7 +30,7 @@ class PasswordGenerator {
 			characters = characters.concat(UPPER_CHARACTERS);
 		}
 
-		if (this.#option.numbers === true) {
+		if (this.#option.digits === true) {
 			characters = characters.concat(NUMBER_CHARACTERS);
 		}
 
