@@ -13,6 +13,17 @@ class PasswordEntity {
 		return this.#value.valueOf();
 	}
 
+	public [Symbol.toStringTag]() {
+		return 'PasswordEntity';
+	}
+
+	public [Symbol.toPrimitive](hint: string): string | null {
+		if (['default', 'string'].indexOf(hint) !== -1) {
+			return this.valueOf();
+		}
+		return null;
+	}
+
 	public static from(value: string): PasswordEntity;
 	public static from(value: number): PasswordEntity;
 	public static from(value: any): PasswordEntity {
