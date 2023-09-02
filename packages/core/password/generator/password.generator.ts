@@ -61,15 +61,6 @@ class PasswordGenerator {
 		return PasswordEntity.from(password);
 	}
 
-	public *[Symbol.iterator](): Generator<PasswordEntity, void, unknown> {
-		let count: number = 0;
-		while (count < this.#option.length) {
-			let count = 0;
-			yield this.generate();
-			count += 1;
-		}
-	}
-
 	public static generate(option?: Partial<PasswordGeneratorOption>) {
 		const generator = new PasswordGenerator(option ?? null);
 		return generator.generate();
