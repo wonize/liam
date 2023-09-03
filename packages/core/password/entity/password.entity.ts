@@ -18,7 +18,7 @@ class PasswordEntity {
 	}
 
 	public [Symbol.toPrimitive](hint: string): string | null {
-		if (['default', 'string'].indexOf(hint) !== -1) {
+		if (hint === 'string') {
 			return this.valueOf();
 		}
 		return null;
