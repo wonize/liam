@@ -13,7 +13,7 @@ class PasswordEntity {
 		return this.#value.valueOf();
 	}
 
-	public [Symbol.toStringTag]() {
+	public get [Symbol.toStringTag](): 'PasswordEntity' {
 		return 'PasswordEntity';
 	}
 
