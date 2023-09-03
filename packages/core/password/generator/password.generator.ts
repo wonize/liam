@@ -51,8 +51,8 @@ class PasswordGenerator {
 		let password: string = '';
 		for (let count = 0; count < length; count++) {
 			const position = Math.floor(Math.random() * length);
-			const character = characters.charAt(position);
-			password = password.concat(character);
+			const character = characters.at(position);
+			password = password.concat(character ?? '');
 		}
 		return PasswordEntity.from(password);
 	}
