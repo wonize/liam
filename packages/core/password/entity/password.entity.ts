@@ -24,6 +24,10 @@ class PasswordEntity {
 		return null;
 	}
 
+	public get length(): number {
+		return this.valueOf().length;
+	}
+
 	public static from(value: string): PasswordEntity;
 	public static from(value: number): PasswordEntity;
 	public static from(value: string | number): PasswordEntity {
