@@ -6,8 +6,7 @@ let indexes = [
 const createRandomMock = () => {
 	let index = -1;
 	const getRandomMock = () => {
-		const v = indexes[++index];
-		return v;
+		return indexes[++index];
 	};
 	return getRandomMock;
 };
