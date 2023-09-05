@@ -2,30 +2,43 @@
 	"name": "@wonize/tsconfig",
 	"version": "0.0.1",
 	"description": "TypeScript configuration for Wonize packages",
-	"scripts": {
-		"test": "node -p 'require(\".\")'"
+	"license": "MIT",
+	"main": "base.json",
+	"publishConfig": {
+		"access": "public"
 	},
+	"files": [
+		"*.json"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/wonize/tsconfig.git"
+	},
+	"author": {
+		"name": "wonize inc.",
+		"url": "https://github.com/wonize",
+		"githubUsername": "wonize"
+	},
+	"contributors": [
+		{
+			"name": "mikoloism",
+			"email": "mikoloism@gmail.com",
+			"url": "https://github.com/mikoloism",
+			"githubUsername": "mikoloism"
+		},
+		{
+			"name": "Alireza Babaei",
+			"email": "myalirezababaei@gmail.com",
+			"url": "https://github.com/venshar",
+			"githubUsername": "venshar"
+		}
+	],
 	"keywords": [
 		"wonize",
 		"tsconfig"
 	],
-	"main": "base.json",
-	"files": [
-		"tsconfig.cjs.json",
-		"tsconfig.mjs.json",
-		"base.json",
-		"lint.json",
-		"aliases.json",
-		"sourcemaps.json"
-	],
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/wonize/passbun.git",
-		"directory": "packages/tsconfig"
-	},
-	"author": {
-		"name": "mikoloism",
-		"email": "mikoloism@gmail.com"
-	},
-	"license": "MIT"
+	"scripts": {},
+	"peerDependencies": {
+		"typescript": ">=4"
+	}
 }
