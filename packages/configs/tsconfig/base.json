@@ -1,0 +1,12 @@
+{
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"display": "Default",
+	"compilerOptions": {
+		"newLine": "lf",
+		"preserveConstEnums": false,
+		"importsNotUsedAsValues": "remove",
+		"moduleResolution": "Node",
+		"isolatedModules": true
+	},
+	"exclude": ["node_modules"]
+}
