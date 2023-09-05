@@ -5,15 +5,15 @@ import { beforeEach, describe, expect, test } from 'vitest';
 import { createRandomMock } from './random.mock';
 
 const MOCK_OPTION_LOWERCASE: PasswordGeneratorOption = {
-	digits: false,
+	digits: true,
 	length: 8,
-	lowercases: true,
+	lowercases: false,
 	symbols: false,
 	uppercases: false,
 };
 
 describe('Core/PasswordGenerator', function () {
-	describe('{ LOWRCASE }', function () {
+	describe('{ DIGITS }', function () {
 		let password: PasswordEntity;
 		beforeEach(function () {
 			const getRandomMock = createRandomMock();
@@ -26,17 +26,17 @@ describe('Core/PasswordGenerator', function () {
 			expect(password).toBeInstanceOf(PasswordEntity);
 		});
 
-		test('should be match with lowercase pattern', function () {
-			expect(password.valueOf()).toMatch(/^[a-z]+$/);
-			expect(password.valueOf()).not.toMatch(/^[^a-z]+$/);
+		test('should be match with digits pattern', function () {
+			expect(password.valueOf()).toMatch(/^[0-9]+$/);
+			expect(password.valueOf()).not.toMatch(/^[^0-9]+$/);
 		});
 
 		test('should be value a sequence', function () {
-			expect(password.valueOf()).toMatch('abcdefgh');
-			expect(password.toString()).toMatch('abcdefgh');
-			expect('' + password).toMatch('abcdefgh');
-			expect(''.concat(password as any)).toMatch('abcdefgh');
-			expect(`${password}`).toMatch('abcdefgh');
+			expect(password.valueOf()).toMatch('01233456');
+			expect(password.toString()).toMatch('01233456');
+			expect('' + password).toMatch('01233456');
+			expect(''.concat(password as any)).toMatch('01233456');
+			expect(`${password}`).toMatch('01233456');
 		});
 
 		test('should be length in range 4 or more', function () {
@@ -46,11 +46,11 @@ describe('Core/PasswordGenerator', function () {
 
 		test('should be converted to primitive value', function () {
 			expect(`${password}`).toBeTypeOf('string');
-			expect(`${password}`).toMatch(/^[a-z]+$/);
+			expect(`${password}`).toMatch(/^[0-9]+$/);
 			expect(''.concat(password as any)).toBeTypeOf('string');
-			expect(''.concat(password as any)).toMatch(/^[a-z]+$/);
+			expect(''.concat(password as any)).toMatch(/^[0-9]+$/);
 			expect('' + password).toBeTypeOf('string');
-			expect('' + password).toMatch(/^[a-z]+$/);
+			expect('' + password).toMatch(/^[0-9]+$/);
 			expect(Object.prototype.toString.call(password)).toMatch(
 				/^\[object PasswordEntity\]$/,
 			);
