@@ -1,0 +1,10 @@
+**/node_modules
+**/dist
+build/
+**/.prettierrc
+**/.prettierrc.**
+**/.prettierignore
+**/.prettierignore.**
+**/.eslintrc
+**/.eslintrc.**
+**/env.d.ts
