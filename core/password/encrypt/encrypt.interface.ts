@@ -1,3 +1,3 @@
-interface PasswordEncryptor {
-    encrypt(password: string): string;
-  }
+export interface Props {
+  password: string;
+}
