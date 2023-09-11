@@ -1,4 +1,9 @@
-import { Encryptable, EncryptionOption } from '../crypto.interface';
+import type {
+	Decryptable,
+	DecryptionOption,
+	Encryptable,
+	EncryptionOption,
+} from '../crypto.interface';
 import type { EncryptionEntity } from './crypto.entity';
 import { EncryptionMethod } from './method.enum';
 
@@ -9,11 +14,24 @@ abstract class BaseEncryptor implements Encryptable {
 		this._option = option ?? {
 			method: EncryptionMethod.DEFAULT,
 		};
-
 		this._value = value.toString();
 	}
 
 	public abstract encrypt(): EncryptionEntity;
 }
 
-export { BaseEncryptor };
+abstract class BaseDecryptor implements Decryptable {
+	protected _option: DecryptionOption;
+	protected _value: string;
+	public constructor(
+		value: EncryptionEntity,
+		option: DecryptionOption | null = null,
+	) {
+		this._option = option ?? {};
+		this._value = value.toString();
+	}
+
+	public abstract decrypt(): string;
+}
+
+export { BaseDecryptor, BaseEncryptor };
