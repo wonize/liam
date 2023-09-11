@@ -1,0 +1,6 @@
+{
+	"name": "@wonize/passbun-core",
+	"version": "0.0.1",
+	"main": "dest/main.js",
+	"license": "MIT"
+}
