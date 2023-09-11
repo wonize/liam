@@ -5,6 +5,10 @@ export interface Decryptable {
 	decrypt(): string;
 }
 
+export interface DecryptionOption {
+	salt?: string;
+}
+
 export interface Encryptable {
 	encrypt(): EncryptionEntity;
 }
