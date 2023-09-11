@@ -3,6 +3,6 @@ export interface PasswordGeneratorOption {
 	uppercases: boolean;
 	lowercases: boolean;
 	symbols: boolean;
-	numbers: boolean;
+	digits: boolean;
 	customCharacters?: string;
 }

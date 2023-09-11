@@ -1,7 +1,11 @@
 {
 	"type": "module",
 	"scripts": {
+		"build": "tsc -p ./tsconfig.json && tsc -p ./tsconfig.mjs.json && tsc -p ./tsconfig.cjs.json",
+		"build:verbose": "tsc -p ./tsconfig.json --verbose",
 		"format": "yarn prettier . --write",
+		"lint": "# yarn eslint  and args here",
+		"lint:fix": "# also here",
 		"test": "vitest run",
 		"test:watch": "vitest",
 		"test:ui": "vitest --ui",
@@ -11,11 +15,18 @@
 	"devDependencies": {
 		"@types/crypto-js": "^4.1.1",
 		"@types/inquirer": "^9.0.3",
+		"@types/node": "^20.5.9",
+		"@typescript-eslint/eslint-plugin": "^6.5.0",
+		"@typescript-eslint/parser": "^6.5.0",
 		"@vitest/coverage-v8": "^0.34.1",
 		"@vitest/ui": "^0.34.1",
+		"@wonize/tsconfig": "^0.0.2",
+		"eslint": "^8.48.0",
+		"eslint-config-prettier": "^9.0.0",
+		"eslint-plugin-import": "^2.28.1",
 		"handlebars": "^4.7.8",
 		"inquirer": "^9.2.10",
-		"prettier": "3.0.2",
+		"prettier": "^3.0.3",
 		"typescript": "^5.1.6",
 		"vite": "^4.4.8",
 		"vitest": "^0.34.1"

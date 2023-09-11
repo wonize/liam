@@ -4,12 +4,10 @@
 		"@wonize/tsconfig/configs/lint.json",
 		"@wonize/tsconfig/configs/sourcemaps.json",
 		"@wonize/tsconfig/configs/isolate.json",
-		"@wonize/tsconfig/configs/aliases.json",
 		"@wonize/tsconfig/configs/esm.json"
 	],
-	"include": ["*-env.d.ts", "**/*.ts", "**/*.tsx"],
+	"include": ["./**/*.ts"],
 	"compilerOptions": {
-		"target": "ESNext",
-		"esModuleInterop": false
+		"lib": ["ESNext"]
 	}
 }

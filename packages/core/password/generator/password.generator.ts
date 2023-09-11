@@ -30,7 +30,7 @@ class PasswordGenerator {
 			characters = characters.concat(UPPER_CHARACTERS);
 		}
 
-		if (this.#option.numbers === true) {
+		if (this.#option.digits === true) {
 			characters = characters.concat(NUMBER_CHARACTERS);
 		}
 
@@ -45,29 +45,16 @@ class PasswordGenerator {
 		return characters;
 	}
 
-	get #character(): string {
-		const characters = this.#characters;
-		const length = characters.length;
-		const position = Math.floor(Math.random() * length);
-		return characters.charAt(position);
-	}
-
 	public generate(): PasswordEntity {
 		const length = this.#option.length;
+		const characters = this.#characters;
 		let password: string = '';
 		for (let count = 0; count < length; count++) {
-			password = password.concat(this.#character);
+			const position = Math.floor(Math.random() * length);
+			const character = characters.at(position);
+			password = password.concat(character ?? '');
 		}
 		return PasswordEntity.from(password);
-	}
-
-	public *[Symbol.iterator](): Generator<PasswordEntity, void, unknown> {
-		let count: number = 0;
-		while (count < this.#option.length) {
-			let count = 0;
-			yield this.generate();
-			count += 1;
-		}
 	}
 
 	public static generate(option?: Partial<PasswordGeneratorOption>) {
