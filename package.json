@@ -1,7 +1,11 @@
 {
 	"type": "module",
 	"scripts": {
+		"build": "tsc -p ./tsconfig.json && tsc -p ./tsconfig.mjs.json && tsc -p ./tsconfig.cjs.json",
+		"build:verbose": "tsc -p ./tsconfig.json --verbose",
 		"format": "yarn prettier . --write",
+		"lint": "# yarn eslint  and args here",
+		"lint:fix": "# also here",
 		"test": "vitest run",
 		"test:watch": "vitest",
 		"test:ui": "vitest --ui",
