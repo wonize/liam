@@ -12,11 +12,7 @@ class PasswordGenerator {
 	#option: PasswordGeneratorOption;
 
 	public constructor(option: Partial<PasswordGeneratorOption> | null = null) {
-		this.#option = Object.assign(
-			{},
-			DEFAULT_PASSWORD_GENERATOR_OPTION,
-			option ?? {},
-		);
+		this.#option = Object.assign({}, DEFAULT_PASSWORD_GENERATOR_OPTION, option ?? {});
 	}
 
 	get #characters(): string {

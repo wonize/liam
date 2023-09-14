@@ -51,9 +51,7 @@ describe('Core/PasswordGenerator', function () {
 			expect(''.concat(password as any)).toMatch(/^[A-Z]+$/);
 			expect('' + password).toBeTypeOf('string');
 			expect('' + password).toMatch(/^[A-Z]+$/);
-			expect(Object.prototype.toString.call(password)).toMatch(
-				/^\[object PasswordEntity\]$/,
-			);
+			expect(Object.prototype.toString.call(password)).toMatch(/^\[object PasswordEntity\]$/);
 		});
 	});
 });

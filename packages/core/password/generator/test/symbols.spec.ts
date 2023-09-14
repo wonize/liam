@@ -27,12 +27,8 @@ describe('Core/PasswordGenerator', function () {
 		});
 
 		test('should be match with symbols pattern', function () {
-			expect(password.valueOf()).toMatch(
-				/^[\[\]\(\)\{\}\@\#\$\%\&\*\~\+\-\_\=\!]+$/,
-			);
-			expect(password.valueOf()).not.toMatch(
-				/^[^\[\]\(\)\{\}\@\#\$\%\&\*\~\+\-\_\=\!]+$/,
-			);
+			expect(password.valueOf()).toMatch(/^[\[\]\(\)\{\}\@\#\$\%\&\*\~\+\-\_\=\!]+$/);
+			expect(password.valueOf()).not.toMatch(/^[^\[\]\(\)\{\}\@\#\$\%\&\*\~\+\-\_\=\!]+$/);
 		});
 
 		test('should be value a sequence', function () {
@@ -50,20 +46,12 @@ describe('Core/PasswordGenerator', function () {
 
 		test('should be converted to primitive value', function () {
 			expect(`${password}`).toBeTypeOf('string');
-			expect(`${password}`).toMatch(
-				/^[\[\]\(\)\{\}\@\#\$\%\&\*\~\+\-\_\=\!]+$/,
-			);
+			expect(`${password}`).toMatch(/^[\[\]\(\)\{\}\@\#\$\%\&\*\~\+\-\_\=\!]+$/);
 			expect(''.concat(password as any)).toBeTypeOf('string');
-			expect(''.concat(password as any)).toMatch(
-				/^[\[\]\(\)\{\}\@\#\$\%\&\*\~\+\-\_\=\!]+$/,
-			);
+			expect(''.concat(password as any)).toMatch(/^[\[\]\(\)\{\}\@\#\$\%\&\*\~\+\-\_\=\!]+$/);
 			expect('' + password).toBeTypeOf('string');
-			expect('' + password).toMatch(
-				/^[\[\]\(\)\{\}\@\#\$\%\&\*\~\+\-\_\=\!]+$/,
-			);
-			expect(Object.prototype.toString.call(password)).toMatch(
-				/^\[object PasswordEntity\]$/,
-			);
+			expect('' + password).toMatch(/^[\[\]\(\)\{\}\@\#\$\%\&\*\~\+\-\_\=\!]+$/);
+			expect(Object.prototype.toString.call(password)).toMatch(/^\[object PasswordEntity\]$/);
 		});
 	});
 });

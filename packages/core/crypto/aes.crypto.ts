@@ -12,10 +12,7 @@ const decryptor = AES.decrypt;
 class AESEncryptor extends BaseEncryptor implements Encryptable {
 	public override encrypt(): EncryptionEntity {
 		const result = encryptor(this._value, LIAN_CRYPTION_PRIVATE_KEY);
-		const encrypted = new EncryptionEntity(
-			result.toString(),
-			EncryptionMethod.AES,
-		);
+		const encrypted = new EncryptionEntity(result.toString(), EncryptionMethod.AES);
 		return encrypted;
 	}
 }

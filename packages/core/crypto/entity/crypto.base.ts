@@ -23,10 +23,7 @@ abstract class BaseEncryptor implements Encryptable {
 abstract class BaseDecryptor implements Decryptable {
 	protected _option: DecryptionOption;
 	protected _value: string;
-	public constructor(
-		value: EncryptionEntity,
-		option: DecryptionOption | null = null,
-	) {
+	public constructor(value: EncryptionEntity, option: DecryptionOption | null = null) {
 		this._option = option ?? {};
 		this._value = value.toString();
 	}
