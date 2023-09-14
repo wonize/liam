@@ -17,13 +17,13 @@ spaces_around_operators = true
 # endline with two space parsed to newline
 trim_trailing_whitespace = false
 
-[*.{tsx, jsx, ts, jsx}]
+[{*.ts, *.tsx, *.js, *.jsx}]
 indent_size = 4
 indent_style = tab
 # additional properties
 quote_type = single
 
-[{package.json, .prettierrc, .eslintrc}]
+[{*rc, package.json, tsconfig.json, tsconfig.*}]
 indent_size = 4
 indent_style = tab
 # additional properties
